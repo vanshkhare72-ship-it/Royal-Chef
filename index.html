@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffb400">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Royal Restaurant | Food Ordering App</title>
+
+  <!-- Manifest for App Install -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="brand">
+        <span class="brand-icon">🍽️</span>
+        <div>
+          <h1>Royal Restaurant</h1>
+          <p>Premium Food Delivery</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn" onclick="scrollToSection('menuSection')">Menu</button>
+      <button class="nav-btn" onclick="scrollToSection('cartSection')">Cart</button>
+      <button class="nav-btn nav-btn-gold" onclick="scrollToSection('checkoutSection')">Checkout</button>
+    </div>
+  </header>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h2>🔥 Delicious Food, Fast Delivery</h2>
+      <p>Order your favourite meals in seconds. Professional Restaurant App Demo.</p>
+
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="scrollToSection('menuSection')">🍕 Order Now</button>
+        <button class="btn-secondary" onclick="scrollToSection('offersSection')">🎁 View Offers</button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <h3>4.8★</h3>
+          <p>Rating</p>
+        </div>
+        <div class="stat-box">
+          <h3>20+</h3>
+          <p>Dishes</p>
+        </div>
+        <div class="stat-box">
+          <h3>30 min</h3>
+          <p>Delivery</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OFFERS SECTION -->
+  <section class="offers" id="offersSection">
+    <h2 class="section-title">🎁 Special Offers</h2>
+
+    <div class="offers-grid">
+      <div class="offer-card">
+        <h3>🔥 Flat 20% OFF</h3>
+        <p>On first order above ₹299</p>
+        <span class="offer-tag">Use Code: FIRST20</span>
+      </div>
+
+      <div class="offer-card">
+        <h3>🍔 Buy 1 Get 1</h3>
+        <p>On selected burgers today</p>
+        <span class="offer-tag">Limited Offer</span>
+      </div>
+
+      <div class="offer-card">
+        <h3>🚚 Free Delivery</h3>
+        <p>On orders above ₹499</p>
+        <span class="offer-tag">Auto Applied</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CATEGORY SECTION -->
+  <section class="categories">
+    <h2 class="section-title">📌 Categories</h2>
+
+    <div class="category-row">
+      <button class="cat-btn active" onclick="filterCategory('All')">All</button>
+      <button class="cat-btn" onclick="filterCategory('Pizza')">Pizza</button>
+      <button class="cat-btn" onclick="filterCategory('Burger')">Burger</button>
+      <button class="cat-btn" onclick="filterCategory('Biryani')">Biryani</button>
+      <button class="cat-btn" onclick="filterCategory('Dessert')">Dessert</button>
+      <button class="cat-btn" onclick="filterCategory('Drinks')">Drinks</button>
+    </div>
+  </section>
+
+
+  <!-- MENU SECTION -->
+  <section class="menu" id="menuSection">
+    <h2 class="section-title">🍽️ Menu Items</h2>
+    <p class="section-subtitle">Choose your delicious meal and add to cart.</p>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- JS will load menu cards -->
+    </div>
+  </section>
+
+
+  <!-- CART SECTION -->
+  <section class="cart" id="cartSection">
+    <h2 class="section-title">🛒 Your Cart</h2>
+    <p class="section-subtitle">Your selected items are here.</p>
+
+    <div class="cart-box">
+      <div id="cartItems" class="cart-items">
+        <p class="empty-cart">Your cart is empty. Add something delicious 😋</p>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>₹<span id="subTotal">0</span></span>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+          <span>₹<span id="deliveryFee">30</span></span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span>₹<span id="totalPrice">0</span></span>
+        </div>
+
+        <button class="checkout-btn" onclick="scrollToSection('checkoutSection')">Proceed to Checkout</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CHECKOUT SECTION -->
+  <section class="checkout" id="checkoutSection">
+    <h2 class="section-title">✅ Checkout</h2>
+    <p class="section-subtitle">Fill your details and place your order.</p>
+
+    <div class="checkout-box">
+
+      <div class="checkout-form">
+
+        <h3>👤 Customer Details</h3>
+
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="custName" placeholder="Enter your name">
+        </div>
+
+        <div class="input-group">
+          <label>Phone Number</label>
+          <input type="text" id="custPhone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="input-group">
+          <label>Full Address</label>
+          <textarea id="custAddress" placeholder="Enter full delivery address"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label>Extra Notes (optional)</label>
+          <textarea id="custNotes" placeholder="Ex: No onion, less spicy..."></textarea>
+        </div>
+
+        <div class="location-box">
+          <button class="location-btn" onclick="getLocation()">📍 Add Live Location</button>
+          <p id="locationText">Location: Not Added</p>
+        </div>
+
+        <div class="payment-box">
+          <h3>💳 Payment Method</h3>
+
+          <div class="payment-options">
+            <label><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on Delivery</label>
+            <label><input type="radio" name="payment" value="UPI"> UPI</label>
+            <label><input type="radio" name="payment" value="Card"> Card</label>
+          </div>
+        </div>
+
+        <button class="placeorder-btn" onclick="placeOrder()">🚀 Place Order Now</button>
+
+        <p id="msgBox" class="msg-box"></p>
+      </div>
+
+      <div class="checkout-preview">
+        <h3>🧾 Order Summary</h3>
+        <div id="summaryItems"></div>
+
+        <div class="summary-total">
+          <p>Subtotal: ₹<span id="summarySubtotal">0</span></p>
+          <p>Delivery Fee: ₹<span id="summaryDelivery">30</span></p>
+          <h2>Total: ₹<span id="summaryTotal">0</span></h2>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Royal Restaurant | Demo App Created by Vansh</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker Registered"))
+      .catch((err) => console.log("Service Worker Error:", err));
+  }
+</script>
